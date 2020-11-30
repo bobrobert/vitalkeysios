@@ -1,0 +1,201 @@
+/* iOS Cordova Tweak */
+.device-cordova.device-ios {
+  height: 100vh;
+}
+
+/* Left Panel right border when it is visible by breakpoint */
+.panel-left.panel-in-breakpoint:before {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 1px;
+  background: rgba(0,0,0,0.1);
+  content: '';
+  z-index: 6000;
+}
+
+/* Hide navbar link which opens left panel when it is visible by breakpoint */
+.panel-left.panel-in-breakpoint ~ .view .navbar .panel-open[data-panel="left"] {
+  display: none;
+}
+
+/*
+  Extra borders for main view and left panel for iOS theme when it behaves as panel (before breakpoint size)
+*/
+.ios .panel-left:not(.panel-in-breakpoint).panel-in ~ .view-main:before,
+.ios .panel-left:not(.panel-in-breakpoint).panel-closing ~ .view-main:before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 1px;
+  background: rgba(0,0,0,0.1);
+  content: '';
+  z-index: 6000;
+}
+
+.md .navbar-inner{
+  background:white;
+  justify-content: center;
+  color:#fff;
+}
+
+.center{
+
+  text-align: center;
+}
+
+div[class*="col"] {
+  text-align: center;
+  color: #000;
+  font-size: 12px;
+}
+
+.img {
+  &-selfie{
+    border:2px solid #2790ce;
+    border-radius:50%;
+    width:100px;
+    height:100px;
+  }
+  &-licence{
+    width:auto;
+    height:100px; 
+    border-radius:10%;
+  }
+}
+.page  {
+  background:white;
+}
+.page-content  {
+  background:white;
+  margin-top:0!important;
+  padding-top:0!important;
+}
+
+i:hover{
+  cursor:pointer;
+}
+
+*:not(input):not(textarea) {
+  /* disable user selection */
+  -webkit-user-select: none;
+  user-select: none;
+  
+  /* disable longpress on links */
+  -webkit-touch-callout: none;
+  
+  /* disable drag and drop */
+  -webkit-user-drag: none;
+  
+  /* transparent highlight color */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body{
+  -webkit-user-select: none;
+  user-select: none;
+  
+  /* disable longpress on links */
+  -webkit-touch-callout: none;
+  
+  /* disable drag and drop */
+  -webkit-user-drag: none;
+  
+  /* transparent highlight color */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+button, .button{
+  color:#2790ce!important;
+  border-color:#2790ce!important;
+}
+
+canvas{
+    border: 2px solid #2790ce;
+    width: 100%;
+    margin: 10px 0;
+    height:300px!important;
+}    
+
+.navbar{
+  z-index:20000;
+  background: white;
+  min-height:100px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+ }
+ /*
+ .pagecontent{
+   position:absolute!important;
+   top:100px!important;
+   left:20px!important;
+   right:20px!important;
+   height:100%!important;
+ }
+ .page-content{
+   padding:0!important;
+ }
+ */
+ .small-text{
+  font-size:0.75em;
+}
+
+.list .item-inner {
+  padding-bottom:0px!important;
+}
+
+.keypad-button-letters {
+  display:none;
+}
+
+.border-round{
+  border:3px solid #dedede;
+  border-radius:10px;
+}
+
+.md .icon-checkbox{
+  height:30px;
+  width:30px;
+  font-size: 33px!important;
+} 
+.md .icon-checkbox:after, .md .checkbox i:after {
+    content: 'checkbox_md';
+    font-size: 33px!important;
+    top: 3px;
+    left: 0px;
+}
+
+button {
+    height:50px!important;
+}
+.toolbar-bottom:after{
+  background: white;
+}
+.toolbar-bottom{
+  height:120px;
+  display:block;
+  
+  
+}
+.toolbar-inner{
+  display:block;
+  background: white;
+  padding:0 20px;
+}
+:root {
+  --f7-safe-area-bottom:0px;
+  --f7-safe-area-bottom-height:120px;
+  --f7-checkbox-active-color:#2790ce!important
+  
+}
+//correction bug css cgv en ligne dans iframe
+.et_pb_row.et_pb_row_0
+{
+
+  margin-right:0!important;
+}
+.page-id-452{
+  width:400px!important;
+}
