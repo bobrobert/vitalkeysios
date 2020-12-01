@@ -31,12 +31,16 @@ export default {
   name: "MySignaturePad",
 
   data() {
-    return {};
+    return {
+      inSave:false
+    };
   },
   methods: {
     save() {
+      if(this.inSvae) return;
+      this.inSave = true;
       var vm = this;
-      CameraPreview.takePicture({width:400, height:400}, function(imgData) {
+      CameraPreview.takePicture({ width: 600, height: 600, quality:85 }, function(imgData) {
         switch (vm.$root.photo.index) {
           case 0:
             vm.$root.user.avatar = "data:image/jpeg;base64," + imgData;
@@ -61,18 +65,29 @@ export default {
     }
   },
   mounted() {
-    CameraPreview.show();
-    CameraPreview.startCamera({
-      x: 40,
-      y: 150,
-      width: 300,
-      height: 300,
-      toBack: false,
-      camera:this.$root.photo.index == 0 ? CameraPreview.CAMERA_DIRECTION.FRONT : CameraPreview.CAMERA_DIRECTION.BACK,
-      previewDrag: false,
-      tapPhoto: false
-    });
-    CameraPreview.show();
+    var vm = this;
+    setTimeout(function() {
+      CameraPreview.show();
+      CameraPreview.startCamera({
+        x: 40,
+        y: 150,
+        width: 300,
+        height: 300,
+        toBack: false,
+        camera:
+          vm.$root.photo.index == 0
+            ? CameraPreview.CAMERA_DIRECTION.FRONT
+            : CameraPreview.CAMERA_DIRECTION.BACK,
+        previewDrag: false,
+        tapPhoto: false
+      });
+      CameraPreview.show();
+      if($root.photo.index == 0) {
+        CameraPreview.setFlashMode(CameraPreview.FLASH_MODE.OFF);
+      }else{
+        CameraPreview.setFlashMode(CameraPreview.FLASH_MODE.ON);
+      }
+    }, 300);
   }
 };
 </script>

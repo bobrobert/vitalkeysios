@@ -73,6 +73,7 @@ export default {
          cordova.getAppVersion.getVersionNumber().then(function(version){
           vm.version = "VitalKeys version : "+version;
          });
+         
   }
 };
 </script>

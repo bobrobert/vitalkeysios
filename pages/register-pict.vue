@@ -38,9 +38,7 @@
             :src="imgSrc(user.ciFrontSide,'./static/img/licence.png')"
             v-on:click="getPicture(1)"
             class="img-licence"
-          width=400
-          height=400
-          />
+                   />
         </div>
         <div style="font-size:16px;">recto</div>
         <div>
